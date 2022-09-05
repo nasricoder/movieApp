@@ -3,6 +3,11 @@ import ListMovie from './Components/ListMovie';
 import { useState } from 'react'
 import NavMovie from './Components/NavMovie';
 import AddMovie from './Components/AddMovies';
+import {Routes,Route} from 'react-router-dom';
+import Home from './router/Home';
+import CardMovies from './Components/CardMovies';
+
+
 
 
   function App() {
@@ -15,14 +20,21 @@ import AddMovie from './Components/AddMovies';
     const [searchM,setSearchM] = useState('')
     const [rateM,setRateM] = useState(0)
     return (
-      <div>
+      <div >
         <NavMovie/>   
         <br/>
         <AddMovie setMovies={setMovies} movies={movies}/>
         <br/>
         <br/>
-        <ListMovie movies={movies} setMovies={setMovies} searchM={searchM} rateM={rateM}/>
-      </div>
+      
+
+        <Routes>
+        <Route path='/' element={<Home/>}/>
+        <Route path='/ListMovies' element={  <ListMovie movies={movies} setMovies={setMovies} searchM={searchM} rateM={rateM}/>}/>
+        <Route path='/Description/:id' element={<CardMovies movies={movies}/>}/>
+        </Routes>
+    </div>
+    
     );
   }
 
