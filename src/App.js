@@ -6,6 +6,7 @@ import AddMovie from './Components/AddMovies';
 import {Routes,Route} from 'react-router-dom';
 import Home from './router/Home';
 import CardMovies from './Components/CardMovies';
+import Description from './Components/Description';
 
 
 
@@ -31,7 +32,7 @@ import CardMovies from './Components/CardMovies';
         <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/ListMovies' element={  <ListMovie movies={movies} setMovies={setMovies} searchM={searchM} rateM={rateM}/>}/>
-        <Route path='/Description/:id' element={<CardMovies movies={movies}/>}/>
+        <Route path='/Description/:id' element={<Description movies={movies}/>}/>
         </Routes>
     </div>
     
